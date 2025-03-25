@@ -1,0 +1,17 @@
+{# templates/compras.html #}
+{% extends "_base.html" %}
+
+{% block conteudo %}
+Página de compras
+
+<h3>Editar item</h3>
+<form action="compras_editar.php" method="post">
+    <input type="hidden" name="id" value="{{ dados.id }}">
+    <input type="text" name="item" placeholder="Escreva o nome do item" value="{{ dados.item }}">
+
+    <input type="submit" value="Editar">
+</form>
+
+
+
+{% endblock %}

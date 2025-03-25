@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Mar-2025 às 12:23
+-- Tempo de geração: 18/03/2025 às 12:22
 -- Versão do servidor: 10.4.32-MariaDB
--- versão do PHP: 8.2.12
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `compras`
+-- Estrutura para tabela `compras`
 --
 
 CREATE TABLE `compras` (
@@ -37,13 +37,13 @@ CREATE TABLE `compras` (
 --
 
 --
--- Índices para tabela `compras`
+-- Índices de tabela `compras`
 --
 ALTER TABLE `compras`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
