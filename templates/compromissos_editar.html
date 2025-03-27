@@ -1,0 +1,18 @@
+
+{% extends "_base.html" %}
+
+{% block conteudo %}
+Página de compras
+
+<h3>Editar compromisso</h3>
+<form action="compromissos_editar.php" method="post">
+    <input type="hidden" name="id" value="{{ dados.id }}">
+    <input type="text" name="titulo" placeholder="Escreva o nome do compromisso" value="{{ dados.titulo }}">
+    <input type="text" name="data" placeholder="Data: aaaa/mm/dd" value="{{ dados.data }}">
+
+    <input type="submit" value="Editar">
+</form>
+
+
+
+{% endblock %}

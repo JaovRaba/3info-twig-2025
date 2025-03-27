@@ -16,10 +16,14 @@ echo 'Próximas Olimpíadas '.Carbon::createFromDate(2024)->addYears(4)->year.'<
 echo 'Sua idade é: '.Carbon::createFromDate(2004, 9, 8)->age.'<br>';
 
 if(Carbon::now()->isWeekend()){
-    echo 'Festa';
+    echo 'Festa <br>';
 }else{
-    echo 'Aula';
+    echo 'Aula <br>';
 }
 
 $nacimento = Carbon::createFromDate(2010, 07, 23);
 echo 'Diferença de data: '. Carbon::now()->diff($nacimento);
+
+$data_aleatoria = '2023-04-05';
+
+$data = Carbon::parse($data_aleatoria);
