@@ -3,7 +3,7 @@
 require_once('twig_carregar.php');
 require('inc/banco.php');
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+if ($_SERVER['REQUEST_METHOD'] == 'GET' ) {
 
     $id = $_GET['id'] ?? null;
 

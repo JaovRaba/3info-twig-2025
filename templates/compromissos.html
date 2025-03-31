@@ -3,6 +3,19 @@
 {% block conteudo %}
 Página de compromissos
 
+<h3>Filtrar</h3>
+<form action="compromissos.php" method="get">
+<select name="filtro">
+    <option value="0">*Selecione uma opção*</option>
+    <option value="asc_data">Crescente(Data)</option>
+    <option value="dsc_data">Decrescente(Data)</option>
+    <option value="asc_titulo">Cresente(Nome)</option>
+    <option value="dsc_titulo">Decrescente(Nome)</option>
+
+</select>
+<input type="submit" value="Enviar">
+</form>
+
 <h3>Adicionar compromisso</h3>
 <form action="compromisso_adc.php" method="post">
     <input type="text" name="titulo" placeholder="Nome do compromisso">

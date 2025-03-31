@@ -8,17 +8,33 @@ date_default_timezone_set('America/Sao_Paulo');
 
 $dados = $pdo->query('SELECT * FROM compromissos');
 
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['filtro'])){
+    switch($_GET['filtro']){
+        case 'asc_data':
+            $dados = $pdo->query('SELECT * FROM compromissos ORDER BY data ASC');
+            break;
+        case 'dsc_data':
+            $dados = $pdo->query('SELECT * FROM compromissos ORDER BY data DESC');
+            break;
+        case 'asc_titulo':
+            $dados = $pdo->query('SELECT * FROM compromissos ORDER BY titulo ASC');
+            break;
+        case 'dsc_titulo':
+            $dados = $pdo->query('SELECT * FROM compromissos ORDER BY titulo DESC');
+            break;
+    }
+}
+
 $comp = $dados->fetchAll(PDO::FETCH_ASSOC);
 
-
-foreach($comp as $i){
-    $data = $i['data'];
+for($i = 0; $i < count($comp); $i++){
+    $data = $comp[$i]['data'];
     $date = Carbon::createFromFormat('Y-m-d', $data);
     Carbon::parse($date);
     if($date->isWeekend() == true){
-        $i['f_semana'] = 1;
+        $comp[$i]['f_semana'] = 1;
     }else{
-        $i['f_semana'] = 0;
+        $comp[$i]['f_semana'] = 0;
     }
 
 }
