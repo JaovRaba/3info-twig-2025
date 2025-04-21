@@ -6,25 +6,28 @@ require('inc/banco.php');
 use Carbon\Carbon;
 date_default_timezone_set('America/Sao_Paulo');
 
-$dados = $pdo->query('SELECT * FROM compromissos');
+session_start();
+
+$dados = $pdo->prepare('SELECT * FROM compromissos WHERE id_user = :id');
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['filtro'])){
     switch($_GET['filtro']){
         case 'asc_data':
-            $dados = $pdo->query('SELECT * FROM compromissos ORDER BY data ASC');
+            $dados = $pdo->prepare('SELECT * FROM compromissos WHERE id_user = :id ORDER BY data ASC');
             break;
         case 'dsc_data':
-            $dados = $pdo->query('SELECT * FROM compromissos ORDER BY data DESC');
+            $dados = $pdo->prepare('SELECT * FROM compromissos WHERE id_user = :id ORDER BY data DESC');
             break;
         case 'asc_titulo':
-            $dados = $pdo->query('SELECT * FROM compromissos ORDER BY titulo ASC');
+            $dados = $pdo->prepare('SELECT * FROM compromissos WHERE id_user = :id ORDER BY titulo ASC');
             break;
         case 'dsc_titulo':
-            $dados = $pdo->query('SELECT * FROM compromissos ORDER BY titulo DESC');
+            $dados = $pdo->prepare('SELECT * FROM compromissos WHERE id_user = :id ORDER BY titulo DESC');
             break;
     }
 }
 
+$dados->execute([':id' => $_SESSION['usuario']]);
 $comp = $dados->fetchAll(PDO::FETCH_ASSOC);
 
 for($i = 0; $i < count($comp); $i++){
